@@ -1,4 +1,4 @@
-import 'package:finalyearproject/screen/home_screen.dart';
+import 'package:finalyearproject/screen/onboarding_screen.dart';
 import 'package:finalyearproject/widget/custom_loading.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_) => const HomeScreen()));
+          MaterialPageRoute(builder: (_) => const OnboardingScreen()));
     });
   }
 
@@ -46,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
             const Spacer(),
 
             const CustomLoading(),
-            Spacer(),
+            const Spacer(),
           ],
         ),
       ),
