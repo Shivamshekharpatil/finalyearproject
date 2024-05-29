@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../helper/global.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -10,10 +12,17 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
+    //initializing device size
+    mq = MediaQuery.sizeOf(context);
     return Scaffold(
       body: Center(
         child: Card(
-          child: Image.asset('assets/image/need.png'),
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20))),
+          child: Padding(
+            padding: EdgeInsets.all(mq.width * .05),
+            child: Image.asset('asset/image/need.png', width: mq.width * .4),
+          ),
         ),
       ),
     );
