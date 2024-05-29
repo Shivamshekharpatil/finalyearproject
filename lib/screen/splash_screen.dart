@@ -1,3 +1,4 @@
+import 'package:finalyearproject/screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../helper/global.dart';
@@ -10,6 +11,16 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 2), () {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => const HomeScreen()));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     //initializing device size
