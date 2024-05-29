@@ -24,6 +24,12 @@ class OnboardingScreen extends StatelessWidget {
           title: 'Find Your Perfect Candidate & Job!',
           subtitle: 'Swipe Right to Connect, Swipe Left to Pass – Efficient Hiring at Your Fingertips!',
           lottie: 'right_and_left'),
+
+      //Onboarding 3
+      Onboard(
+          title: 'Connect and Conquer :)',
+          subtitle: 'Bridging Talent and Opportunity with Real-Time Conversations!',
+          lottie: 'chat'),
     ];
 
     return Scaffold(
