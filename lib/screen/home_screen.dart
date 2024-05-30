@@ -1,5 +1,7 @@
+import 'package:finalyearproject/authenticationScreen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 import '../helper/global.dart';
 
@@ -22,9 +24,15 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     //initializing device size
     mq = MediaQuery.sizeOf(context);
-    return const Scaffold(
-      body: Center(
-        child: Text('Welcome to Home Screen')),
+
+    return GetMaterialApp(
+      title: 'Swipe Job Now',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: const LoginScreen(),
     );
   }
 }
