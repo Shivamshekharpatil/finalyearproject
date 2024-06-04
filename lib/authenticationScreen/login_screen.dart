@@ -1,5 +1,7 @@
+import 'package:finalyearproject/authenticationScreen/registration_screen.dart';
 import 'package:finalyearproject/widget/custom_text_field_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -126,10 +128,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   InkWell(
                     onTap: ()
                     {
-
+                      Get.to(const RegistrationScreen());
                     },
                     child: const Text(
-                      "Register Here",
+                      "Create Here",
                       style: TextStyle(
                         fontSize: 18,
                         color: Colors.white,
