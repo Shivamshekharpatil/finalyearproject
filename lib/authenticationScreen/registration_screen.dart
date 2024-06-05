@@ -1,5 +1,7 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../widget/custom_text_field_widget.dart';
 
@@ -27,6 +29,8 @@ class _RegistrationScreenState extends State<RegistrationScreen>
   TextEditingController nationalityTextEditingController = TextEditingController();
   TextEditingController skillsTextEditingController = TextEditingController();
   TextEditingController educationTextEditingController = TextEditingController();
+
+  bool showProgressBar = false;
 
   @override
   Widget build(BuildContext context)
@@ -194,6 +198,172 @@ class _RegistrationScreenState extends State<RegistrationScreen>
               const SizedBox(
                 height: 24,
               ),
+
+              //usertype
+              const Text(
+                  "User Type:",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              const SizedBox(
+                height: 12,
+              ),
+
+              //user
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFileWidget(
+                  editingController: usertypeTextEditingController,
+                  labelText: "User",
+                  iconData: CupertinoIcons.rectangle_stack_person_crop_fill,
+                  isObscure: false,
+                ),
+              ),
+
+              const SizedBox(
+                height: 24,
+              ),
+
+              //Education Background
+              const Text(
+                "Education Background:",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              const SizedBox(
+                height: 12,
+              ),
+
+              //Education
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFileWidget(
+                  editingController: educationTextEditingController,
+                  labelText: "Education",
+                  iconData: Icons.history_edu,
+                  isObscure: false,
+                ),
+              ),
+
+              const SizedBox(
+                height: 24,
+              ),
+
+              //Skills
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFileWidget(
+                  editingController: skillsTextEditingController,
+                  labelText: "Skills",
+                  iconData: Icons.work,
+                  isObscure: false,
+                ),
+              ),
+
+              const SizedBox(
+                height: 24,
+              ),
+
+              //Nationality
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFileWidget(
+                  editingController: nationalityTextEditingController,
+                  labelText: "Nationality",
+                  iconData: Icons.flag_circle_outlined,
+                  isObscure: false,
+                ),
+              ),
+
+              const SizedBox(
+                height: 30,
+              ),
+
+              //Create account button
+              Container(
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(12),
+                    )
+                ),
+                child: InkWell(
+                  onTap: (){
+
+                  },
+                  child: const Center(
+                    child: Text(
+                      "Create Account",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              const SizedBox(
+                height: 16,
+              ),
+
+              //already have an account login here button
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+
+                  const Text(
+                    "Already have an account? ",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.grey,
+                    ),
+                  ),
+
+                  InkWell(
+                    onTap: ()
+                    {
+                      Get.back();
+                    },
+                    child: const Text(
+                      "Login Here",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+
+              const SizedBox(
+                height: 16,
+              ),
+
+              showProgressBar == true ? const CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.pink),
+              ) : Container(),
+
+              const SizedBox(
+                height: 30,
+              ),
+
             ],
           ),
         ),

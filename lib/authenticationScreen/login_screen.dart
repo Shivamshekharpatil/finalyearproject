@@ -150,6 +150,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 valueColor: AlwaysStoppedAnimation<Color>(Colors.pink),
               ) : Container(),
 
+              const SizedBox(
+                height: 30,
+              ),
+
             ],
           ),
         ),
