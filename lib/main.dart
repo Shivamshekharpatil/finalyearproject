@@ -1,8 +1,13 @@
+import 'package:finalyearproject/controllers/authentication_controller.dart';
 import 'package:finalyearproject/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
-void main() {
+void main()
+{
+  WidgetsFlutterBinding.ensureInitialized();
+  Get.put(AuthenticationController());
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
