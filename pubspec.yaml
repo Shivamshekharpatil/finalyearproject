@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.6
 
   get:
+  image_picker:
 
   lottie: ^2.7.0
 
