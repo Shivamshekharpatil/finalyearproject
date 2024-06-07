@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "235430571802",
+    "project_id": "swipejobnow-app",
+    "storage_bucket": "swipejobnow-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235430571802:android:271f58bef5843a1d5c06a3",
+        "android_client_info": {
+          "package_name": "com.example.finalyearproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwkNGTivkj4olxU43TiHKLG7pd5W8fgdY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
