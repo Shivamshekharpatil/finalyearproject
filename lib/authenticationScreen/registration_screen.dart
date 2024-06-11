@@ -1,4 +1,3 @@
-
 import 'dart:io';
 
 import 'package:finalyearproject/controllers/authentication_controller.dart';
@@ -8,16 +7,14 @@ import 'package:get/get.dart';
 
 import '../widget/custom_text_field_widget.dart';
 
-class RegistrationScreen extends StatefulWidget
-{
+class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});
 
   @override
   State<RegistrationScreen> createState() => _RegistrationScreenState();
 }
 
-class _RegistrationScreenState extends State<RegistrationScreen>
-{
+class _RegistrationScreenState extends State<RegistrationScreen> {
   //personal info
   TextEditingController nameTextEditingController = TextEditingController();
   TextEditingController emailTextEditingController = TextEditingController();
@@ -31,35 +28,35 @@ class _RegistrationScreenState extends State<RegistrationScreen>
 
   //Background - educational values
   TextEditingController skillsTextEditingController = TextEditingController();
-  TextEditingController educationTextEditingController = TextEditingController();
+  TextEditingController educationTextEditingController =
+      TextEditingController();
   TextEditingController langTextEditingController = TextEditingController();
 
   //Work Experience
   TextEditingController jobtitleTextEditingController = TextEditingController();
-  TextEditingController companyNameTextEditingController = TextEditingController();
-  TextEditingController startDateTextEditingController = TextEditingController();
+  TextEditingController companyNameTextEditingController =
+      TextEditingController();
+  TextEditingController startDateTextEditingController =
+      TextEditingController();
   TextEditingController endDateTextEditingController = TextEditingController();
-
 
   bool showProgressBar = false;
 
   var authenticationController = AuthenticationController.authController;
 
   @override
-  Widget build(BuildContext context)
-  {
+  Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Center(
           child: Column(
             children: [
-
               const SizedBox(
                 height: 100,
               ),
 
               const Text(
-                  "Create Account",
+                "Create Account",
                 style: TextStyle(
                   fontSize: 22,
                   color: Colors.grey,
@@ -84,67 +81,63 @@ class _RegistrationScreenState extends State<RegistrationScreen>
               ),
 
               //choose image circle avatar
-              authenticationController.imageFile == null ?
-              const CircleAvatar(
-                radius: 80,
-                backgroundImage: AssetImage(
-                    "asset/image/profile.png"
-                ),
-                backgroundColor: Colors.white,
-              ) :
-              Container(
-                width: 180,
-                height: 180,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.grey,
-                  image: DecorationImage(
-                    fit: BoxFit.fitHeight,
-                    image: FileImage(
-                      File(
-                        authenticationController.imageFile!.path,
+              authenticationController.imageFile == null
+                  ? const CircleAvatar(
+                      radius: 80,
+                      backgroundImage: AssetImage("asset/image/profile.png"),
+                      backgroundColor: Colors.white,
+                    )
+                  : Container(
+                      width: 180,
+                      height: 180,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.grey,
+                        image: DecorationImage(
+                          fit: BoxFit.fitHeight,
+                          image: FileImage(
+                            File(
+                              authenticationController.imageFile!.path,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ),
-              ),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-
                   IconButton(
-                      onPressed: () async
-                      {
-                       await authenticationController.pickImageFileFromGallery();
-
-                       setState(() {
-                         authenticationController.imageFile;
-                       });
-                      }, icon: const Icon(
-                    Icons.image_outlined,
-                    color: Colors.grey,
-                    size: 30,
-                  ),
-                  ),
-
-                  const SizedBox(
-                    width: 10,
-                  ),
-
-                  IconButton(
-                    onPressed: () async
-                    {
-                      await authenticationController.captureImageFromPhoneCamera();
+                    onPressed: () async {
+                      await authenticationController.pickImageFileFromGallery();
 
                       setState(() {
                         authenticationController.imageFile;
                       });
-                    }, icon: const Icon(
-                    Icons.camera_alt_outlined,
-                    color: Colors.grey,
-                    size: 30,
+                    },
+                    icon: const Icon(
+                      Icons.image_outlined,
+                      color: Colors.grey,
+                      size: 30,
+                    ),
                   ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  IconButton(
+                    onPressed: () async {
+                      await authenticationController
+                          .captureImageFromPhoneCamera();
+
+                      setState(() {
+                        authenticationController.imageFile;
+                      });
+                    },
+                    icon: const Icon(
+                      Icons.camera_alt_outlined,
+                      color: Colors.grey,
+                      size: 30,
+                    ),
                   ),
                 ],
               ),
@@ -155,7 +148,7 @@ class _RegistrationScreenState extends State<RegistrationScreen>
 
               //personal info
               const Text(
-                  "Personal Info:",
+                "Personal Info:",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 22,
@@ -297,7 +290,7 @@ class _RegistrationScreenState extends State<RegistrationScreen>
 
               //usertype
               const Text(
-                  "User Type:",
+                "User Type:",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
@@ -457,11 +450,98 @@ class _RegistrationScreenState extends State<RegistrationScreen>
                     color: Colors.white,
                     borderRadius: BorderRadius.all(
                       Radius.circular(12),
-                    )
-                ),
+                    )),
                 child: InkWell(
-                  onTap: (){
+                  onTap: () async
+                  {
+                    if (authenticationController.profilrImage != null) {
+                      if (
+                          //personal info
+                          nameTextEditingController.text.trim().isNotEmpty &&
+                              emailTextEditingController.text
+                                  .trim()
+                                  .isNotEmpty &&
+                              passwordTextEditingController.text
+                                  .trim()
+                                  .isNotEmpty &&
+                              cityTextEditingController.text
+                                  .trim()
+                                  .isNotEmpty &&
+                              countryTextEditingController.text
+                                  .trim()
+                                  .isNotEmpty &&
+                              nationalityTextEditingController.text
+                                  .trim()
+                                  .isNotEmpty &&
+                              summaryTextEditingController.text
+                                  .trim()
+                                  .isNotEmpty
+                              //education
+                              &&
+                              usertypeTextEditingController.text
+                                  .trim()
+                                  .isNotEmpty &&
+                              skillsTextEditingController.text
+                                  .trim()
+                                  .isNotEmpty &&
+                              educationTextEditingController.text
+                                  .trim()
+                                  .isNotEmpty &&
+                              langTextEditingController.text.trim().isNotEmpty
+                              //work experience
+                              &&
+                              jobtitleTextEditingController.text
+                                  .trim()
+                                  .isNotEmpty &&
+                              companyNameTextEditingController.text
+                                  .trim()
+                                  .isNotEmpty &&
+                              startDateTextEditingController.text
+                                  .trim()
+                                  .isNotEmpty &&
+                              endDateTextEditingController.text
+                                  .trim()
+                                  .isNotEmpty)
+                      {
+                        setState(() {
+                          showProgressBar = true;
+                        });
 
+                        await authenticationController.createNewUserAccount(
+                          //personal info
+                          authenticationController.profilrImage!,
+                          nameTextEditingController.text.trim(),
+                          emailTextEditingController.text.trim(),
+                          passwordTextEditingController.text.trim(),
+                          cityTextEditingController.text.trim(),
+                          countryTextEditingController.text.trim(),
+                          nationalityTextEditingController.text.trim(),
+                          summaryTextEditingController.text.trim(),
+                          //user type
+                          usertypeTextEditingController.text.trim(),
+                          //education
+                          educationTextEditingController.text.trim(),
+                          skillsTextEditingController.text.trim(),
+                          langTextEditingController.text.trim(),
+                          //work experience
+                          jobtitleTextEditingController.text.trim(),
+                          companyNameTextEditingController.text.trim(),
+                          startDateTextEditingController.text.trim(),
+                          endDateTextEditingController.text.trim(),
+                        );
+
+                        setState(() {
+                          showProgressBar = false;
+                        });
+                      }
+                      else {
+                        Get.snackbar("Incomplete Field",
+                            "Please fill out all field in text fields.");
+                      }
+                    } else {
+                      Get.snackbar("Image File Missing",
+                          "Please pick image from Photo gallery or capture with Camera");
+                    }
                   },
                   child: const Center(
                     child: Text(
@@ -484,7 +564,6 @@ class _RegistrationScreenState extends State<RegistrationScreen>
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-
                   const Text(
                     "Already have an account? ",
                     style: TextStyle(
@@ -492,10 +571,8 @@ class _RegistrationScreenState extends State<RegistrationScreen>
                       color: Colors.grey,
                     ),
                   ),
-
                   InkWell(
-                    onTap: ()
-                    {
+                    onTap: () {
                       Get.back();
                     },
                     child: const Text(
@@ -514,14 +591,15 @@ class _RegistrationScreenState extends State<RegistrationScreen>
                 height: 16,
               ),
 
-              showProgressBar == true ? const CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.pink),
-              ) : Container(),
+              showProgressBar == true
+                  ? const CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.pink),
+                    )
+                  : Container(),
 
               const SizedBox(
                 height: 30,
               ),
-
             ],
           ),
         ),

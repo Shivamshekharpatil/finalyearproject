@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:finalyearproject/homeScreen/home_screen.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -59,7 +60,6 @@ class AuthenticationController extends GetxController
       String email, String password,
       String city, String country,
       String nationality, String summary,
-      String publishedDateTime,
 
       //user Type
       String userType,
@@ -116,6 +116,7 @@ class AuthenticationController extends GetxController
           .set(personInstance.toJson());
 
       Get.snackbar("Account Successfully Created", "Congratulations");
+      Get.to(const HomeScreens());
     }
     catch(errorMsg)
     {
