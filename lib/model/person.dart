@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class Person
-{
+class Person {
   //Personal info
   String? imageProfile;
   String? name;
@@ -9,6 +8,7 @@ class Person
   String? password;
   String? city;
   String? country;
+  String? nationality;
   String? summary;
   int? publishedDateTime;
 
@@ -16,28 +16,36 @@ class Person
   String? userType;
 
   //Background
-  String? nationality;
   String? skills;
   String? education;
+  String? lang;
 
+  //Work Experience
+  String? jobtitle;
+  String? companyName;
+  int? startDate;
+  int? endDate;
 
-  Person({
-   this.imageProfile,
-   this.name,
-   this.email,
-   this.password,
-   this.city,
-   this.country,
-   this.summary,
-   this.publishedDateTime,
-   this.userType,
-   this.nationality,
-   this.skills,
-   this.education
-});
+  Person(
+      {this.imageProfile,
+      this.name,
+      this.email,
+      this.password,
+      this.city,
+      this.country,
+      this.summary,
+      this.publishedDateTime,
+      this.userType,
+      this.skills,
+      this.education,
+      this.nationality,
+      this.lang,
+      this.jobtitle,
+      this.companyName,
+      this.startDate,
+      this.endDate});
 
-  static Person fromdataSnapshot(DocumentSnapshot snapshot)
-  {
+  static Person fromdataSnapshot(DocumentSnapshot snapshot) {
     var dataSnapshot = snapshot.data() as Map<String, dynamic>;
 
     return Person(
@@ -47,17 +55,21 @@ class Person
       password: dataSnapshot["password"],
       city: dataSnapshot["city"],
       country: dataSnapshot["country"],
+      nationality: dataSnapshot["nationality"],
       summary: dataSnapshot["summary"],
       publishedDateTime: dataSnapshot["publishedDateTime"],
       userType: dataSnapshot["userType"],
-      nationality: dataSnapshot["nationality"],
       skills: dataSnapshot["skills"],
-      education: dataSnapshot["education"]
+      education: dataSnapshot["education"],
+      lang: dataSnapshot["lang"],
+      jobtitle: dataSnapshot["jobtitle"],
+      companyName: dataSnapshot["companyName"],
+      startDate: dataSnapshot["startDate"],
+      endDate: dataSnapshot["endDate"],
     );
   }
 
-  Map<String, dynamic> toJson() =>
-      {
+  Map<String, dynamic> toJson() => {
         "imageProfile": imageProfile,
         "name": name,
         "email": email,
@@ -70,6 +82,10 @@ class Person
         "nationality": nationality,
         "skills": skills,
         "education": education,
+        "lang": lang,
+        "jobtitle": jobtitle,
+        "companyName": companyName,
+        "startDate": startDate,
+        "endDate": endDate,
       };
-
 }

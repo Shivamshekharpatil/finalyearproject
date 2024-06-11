@@ -24,14 +24,22 @@ class _RegistrationScreenState extends State<RegistrationScreen>
   TextEditingController passwordTextEditingController = TextEditingController();
   TextEditingController cityTextEditingController = TextEditingController();
   TextEditingController countryTextEditingController = TextEditingController();
+  TextEditingController nationalityTextEditingController = TextEditingController();
   TextEditingController summaryTextEditingController = TextEditingController();
   //user type
   TextEditingController usertypeTextEditingController = TextEditingController();
 
   //Background - educational values
-  TextEditingController nationalityTextEditingController = TextEditingController();
   TextEditingController skillsTextEditingController = TextEditingController();
   TextEditingController educationTextEditingController = TextEditingController();
+  TextEditingController langTextEditingController = TextEditingController();
+
+  //Work Experience
+  TextEditingController jobtitleTextEditingController = TextEditingController();
+  TextEditingController companyNameTextEditingController = TextEditingController();
+  TextEditingController startDateTextEditingController = TextEditingController();
+  TextEditingController endDateTextEditingController = TextEditingController();
+
 
   bool showProgressBar = false;
 
@@ -239,6 +247,22 @@ class _RegistrationScreenState extends State<RegistrationScreen>
                 height: 24,
               ),
 
+              //Nationality
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFileWidget(
+                  editingController: nationalityTextEditingController,
+                  labelText: "Nationality",
+                  iconData: Icons.flag_circle_outlined,
+                  isObscure: false,
+                ),
+              ),
+
+              const SizedBox(
+                height: 24,
+              ),
+
               //summary
               SizedBox(
                 width: MediaQuery.of(context).size.width - 36,
@@ -247,6 +271,22 @@ class _RegistrationScreenState extends State<RegistrationScreen>
                   editingController: summaryTextEditingController,
                   labelText: "Summary",
                   iconData: Icons.text_fields,
+                  isObscure: false,
+                ),
+              ),
+
+              const SizedBox(
+                height: 24,
+              ),
+
+              //Languages
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFileWidget(
+                  editingController: langTextEditingController,
+                  labelText: "Languages",
+                  iconData: Icons.language,
                   isObscure: false,
                 ),
               ),
@@ -331,14 +371,76 @@ class _RegistrationScreenState extends State<RegistrationScreen>
                 height: 24,
               ),
 
-              //Nationality
+              //Work Experience
+              const Text(
+                "Work Expirence:",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              const SizedBox(
+                height: 12,
+              ),
+
+              //Job Title
               SizedBox(
                 width: MediaQuery.of(context).size.width - 36,
                 height: 55,
                 child: CustomTextFileWidget(
-                  editingController: nationalityTextEditingController,
-                  labelText: "Nationality",
-                  iconData: Icons.flag_circle_outlined,
+                  editingController: jobtitleTextEditingController,
+                  labelText: "Job Title",
+                  iconData: Icons.title,
+                  isObscure: false,
+                ),
+              ),
+
+              const SizedBox(
+                height: 24,
+              ),
+
+              //Company Name
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFileWidget(
+                  editingController: companyNameTextEditingController,
+                  labelText: "Company Name",
+                  iconData: Icons.work,
+                  isObscure: false,
+                ),
+              ),
+
+              const SizedBox(
+                height: 24,
+              ),
+
+              //StartDate
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFileWidget(
+                  editingController: startDateTextEditingController,
+                  labelText: "Start Date",
+                  iconData: Icons.numbers,
+                  isObscure: false,
+                ),
+              ),
+
+              const SizedBox(
+                height: 24,
+              ),
+
+              //End Date
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFileWidget(
+                  editingController: endDateTextEditingController,
+                  labelText: "End Date",
+                  iconData: Icons.numbers,
                   isObscure: false,
                 ),
               ),
