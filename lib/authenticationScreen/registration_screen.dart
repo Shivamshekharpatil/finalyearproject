@@ -454,7 +454,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 child: InkWell(
                   onTap: () async
                   {
-                    if (authenticationController.profilrImage != null) {
+                    if (authenticationController.imageFile != null) {
                       if (
                           //personal info
                           nameTextEditingController.text.trim().isNotEmpty &&
