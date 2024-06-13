@@ -123,4 +123,22 @@ class AuthenticationController extends GetxController
       Get.snackbar("Try again Accout not created", "Error Occurred: $errorMsg");
     }
   }
+
+  loginUser(String emailUser, String passwordUser) async
+  {
+    try
+    {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailUser,
+          password: passwordUser,
+      );
+
+      Get.snackbar("Welcome back $emailUser", "You have logged-in successfully");
+      Get.to(const HomeScreens());
+    }
+    catch(errorMsg)
+    {
+      Get.snackbar("Login Unsuccessful", "Error occurred: $errorMsg");
+    }
+  }
 }
