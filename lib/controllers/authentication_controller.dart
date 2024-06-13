@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:finalyearproject/authenticationScreen/login_screen.dart';
 import 'package:finalyearproject/homeScreen/home_screen.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -11,6 +12,8 @@ import 'package:finalyearproject/model/person.dart' as personModel;
 class AuthenticationController extends GetxController
 {
   static AuthenticationController authController = Get.find();
+
+  late Rx<User?> firebaseCurrentUser;
 
   late Rx<File?> pickedFile;
   File? get profilrImage => pickedFile.value;
@@ -140,5 +143,28 @@ class AuthenticationController extends GetxController
     {
       Get.snackbar("Login Unsuccessful", "Error occurred: $errorMsg");
     }
+  }
+
+  checkIfUserIsLoggedIn(User? currentUser)
+  {
+    if(currentUser == null)
+    {
+      Get.to(const LoginScreen());
+    }
+    else
+    {
+      Get.to(const HomeScreens());
+    }
+  }
+
+  @override
+  void onReady() {
+    // TODO: implement onReady
+    super.onReady();
+
+    firebaseCurrentUser = Rx<User?>(FirebaseAuth.instance.currentUser);
+    firebaseCurrentUser.bindStream(FirebaseAuth.instance.authStateChanges());
+
+    ever(firebaseCurrentUser, checkIfUserIsLoggedIn);
   }
 }
