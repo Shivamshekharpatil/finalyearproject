@@ -19,6 +19,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   TextEditingController nameTextEditingController = TextEditingController();
   TextEditingController emailTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
+  TextEditingController ageTextEditingController = TextEditingController();
+  TextEditingController phoneTextEditingController = TextEditingController();
   TextEditingController cityTextEditingController = TextEditingController();
   TextEditingController countryTextEditingController = TextEditingController();
   TextEditingController nationalityTextEditingController = TextEditingController();
@@ -201,6 +203,38 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   labelText: "Password",
                   iconData: Icons.lock_outline,
                   isObscure: true,
+                ),
+              ),
+
+              const SizedBox(
+                height: 24,
+              ),
+
+              //age
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFileWidget(
+                  editingController: ageTextEditingController,
+                  labelText: "Age",
+                  iconData: Icons.numbers,
+                  isObscure: false,
+                ),
+              ),
+
+              const SizedBox(
+                height: 24,
+              ),
+
+              //phone
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFileWidget(
+                  editingController: phoneTextEditingController,
+                  labelText: "Phone Number",
+                  iconData: Icons.call,
+                  isObscure: false,
                 ),
               ),
 
@@ -464,6 +498,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               passwordTextEditingController.text
                                   .trim()
                                   .isNotEmpty &&
+                              ageTextEditingController.text
+                                  .trim()
+                                  .isNotEmpty &&
+                              phoneTextEditingController.text
+                                  .trim()
+                                  .isNotEmpty &&
                               cityTextEditingController.text
                                   .trim()
                                   .isNotEmpty &&
@@ -475,9 +515,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                   .isNotEmpty &&
                               summaryTextEditingController.text
                                   .trim()
-                                  .isNotEmpty
+                                  .isNotEmpty &&
                               //education
-                              &&
                               usertypeTextEditingController.text
                                   .trim()
                                   .isNotEmpty &&
@@ -487,9 +526,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               educationTextEditingController.text
                                   .trim()
                                   .isNotEmpty &&
-                              langTextEditingController.text.trim().isNotEmpty
+                              langTextEditingController.text
+                                  .trim()
+                                  .isNotEmpty &&
                               //work experience
-                              &&
                               jobtitleTextEditingController.text
                                   .trim()
                                   .isNotEmpty &&
@@ -513,6 +553,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           nameTextEditingController.text.trim(),
                           emailTextEditingController.text.trim(),
                           passwordTextEditingController.text.trim(),
+                          ageTextEditingController.text.trim(),
+                          phoneTextEditingController.text.trim(),
                           cityTextEditingController.text.trim(),
                           countryTextEditingController.text.trim(),
                           nationalityTextEditingController.text.trim(),

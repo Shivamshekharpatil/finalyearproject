@@ -60,8 +60,8 @@ class AuthenticationController extends GetxController
   createNewUserAccount(
       //personal info
       File imageProfile, String name,
-      String email, String password,
-      String city, String country,
+      String email, String password, String age,
+      String phone,String city, String country,
       String nationality, String summary,
 
       //user Type
@@ -73,7 +73,7 @@ class AuthenticationController extends GetxController
 
       //Work Experience
       String jobtitle, String companyName,
-      String startDate, String endDate,) async
+      String startDate, String endDate) async
   {
     try
     {
@@ -94,6 +94,8 @@ class AuthenticationController extends GetxController
         name: name,
         email: email,
         password: password,
+        age: int.parse(age),
+        phone: int.parse(phone),
         city: city,
         country: country,
         nationality: nationality,

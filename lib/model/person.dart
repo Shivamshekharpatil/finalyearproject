@@ -7,6 +7,8 @@ class Person {
   String? name;
   String? email;
   String? password;
+  int? age;
+  int? phone;
   String? city;
   String? country;
   String? nationality;
@@ -33,6 +35,8 @@ class Person {
       this.name,
       this.email,
       this.password,
+      this.age,
+      this.phone,
       this.city,
       this.country,
       this.summary,
@@ -56,6 +60,8 @@ class Person {
       name: dataSnapshot["name"],
       email: dataSnapshot["email"],
       password: dataSnapshot["password"],
+      age: dataSnapshot["age"],
+      phone: dataSnapshot["phone"],
       city: dataSnapshot["city"],
       country: dataSnapshot["country"],
       nationality: dataSnapshot["nationality"],
@@ -78,6 +84,8 @@ class Person {
         "name": name,
         "email": email,
         "password": password,
+        "age": age,
+        "phone": phone,
         "city": city,
         "country": country,
         "summary": summary,
