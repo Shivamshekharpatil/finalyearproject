@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return GetMaterialApp(
       title: 'Swipe Job Now',
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: Colors.black,
+        scaffoldBackgroundColor: Colors.black12,
       ),
       debugShowCheckedModeBanner: false,
       home: const LoginScreen(),

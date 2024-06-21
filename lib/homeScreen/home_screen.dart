@@ -3,6 +3,7 @@ import 'package:finalyearproject/tabScreens/like_sent_like_received_screen.dart'
 import 'package:finalyearproject/tabScreens/swipping_screen.dart';
 import 'package:finalyearproject/tabScreens/user_details_screen.dart';
 import 'package:finalyearproject/tabScreens/view_sent_view_received_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreens extends StatefulWidget {
@@ -19,7 +20,7 @@ class _HomeScreensState extends State<HomeScreens> {
     ViewSentViewReceivedScreen(),
     FavouriteSentFavouriteReceivedScreen(),
     LikeSentLikeReceivedScreen(),
-    UserDetailsScreen(),
+    UserDetailsScreen(userID: FirebaseAuth.instance.currentUser!.uid,),
   ];
   @override
   Widget build(BuildContext context) {

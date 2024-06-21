@@ -85,7 +85,7 @@ class _SwippingScreenState extends State<SwippingScreen> {
                               height: 4,
                             ),
 
-                            //Jobtitle and education
+                            //Jobtitle and userType
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -105,8 +105,27 @@ class _SwippingScreenState extends State<SwippingScreen> {
                                     ),
                                   ),
                                 ),
+
+                                ElevatedButton(
+                                  onPressed: () {},
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.white30,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                        BorderRadius.circular(16)),
+                                  ),
+                                  child: Text(
+                                    eachProfileInfo.userType.toString(),
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
+
+
 
                             //country and nationality
                             Row(
@@ -133,7 +152,7 @@ class _SwippingScreenState extends State<SwippingScreen> {
                                   width: 6,
                                 ),
 
-                                //jobtitle
+                                //nationality
                                 ElevatedButton(
                                   onPressed: () {},
                                   style: ElevatedButton.styleFrom(
@@ -169,7 +188,7 @@ class _SwippingScreenState extends State<SwippingScreen> {
                             onTap: () {},
                             child: Image.asset(
                               "asset/image/star.png",
-                              width: 60,
+                              width: 50,
                             ),
                           ),
 
@@ -178,7 +197,7 @@ class _SwippingScreenState extends State<SwippingScreen> {
                             onTap: () {},
                             child: Image.asset(
                               "asset/image/chat.png",
-                              width: 90,
+                              width: 70,
                             ),
                           ),
 
@@ -187,7 +206,7 @@ class _SwippingScreenState extends State<SwippingScreen> {
                             onTap: () {},
                             child: Image.asset(
                               "asset/image/thumbs-up.png",
-                              width: 60,
+                              width: 50,
                             ),
                           ),
                         ],

@@ -86,7 +86,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               authenticationController.imageFile == null
                   ? const CircleAvatar(
                       radius: 80,
-                      backgroundImage: AssetImage("asset/image/profile.png"),
+                      backgroundImage: AssetImage("asset/image/user.png"),
                       backgroundColor: Colors.white,
                     )
                   : Container(
