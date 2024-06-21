@@ -36,17 +36,13 @@ class _SwippingScreenState extends State<SwippingScreen> {
                   padding: const EdgeInsets.all(12),
                   child: Column(
                     children: [
-
                       //filter icon button
                       Align(
                         alignment: Alignment.topRight,
                         child: Padding(
                           padding: const EdgeInsets.only(top: 8),
                           child: IconButton(
-                            onPressed: ()
-                            {
-
-                            },
+                            onPressed: () {},
                             icon: const Icon(
                               Icons.filter_list,
                               size: 30,
@@ -75,7 +71,9 @@ class _SwippingScreenState extends State<SwippingScreen> {
 
                             //age - city
                             Text(
-                              eachProfileInfo.age.toString() + " ⦾ " + eachProfileInfo.city.toString(),
+                              eachProfileInfo.age.toString() +
+                                  " ⦾ " +
+                                  eachProfileInfo.city.toString(),
                               style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 24,
@@ -120,7 +118,7 @@ class _SwippingScreenState extends State<SwippingScreen> {
                                     backgroundColor: Colors.white30,
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
-                                        BorderRadius.circular(16)),
+                                            BorderRadius.circular(16)),
                                   ),
                                   child: Text(
                                     eachProfileInfo.country.toString(),
@@ -142,7 +140,7 @@ class _SwippingScreenState extends State<SwippingScreen> {
                                     backgroundColor: Colors.white30,
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
-                                        BorderRadius.circular(16)),
+                                            BorderRadius.circular(16)),
                                   ),
                                   child: Text(
                                     eachProfileInfo.nationality.toString(),
@@ -152,12 +150,47 @@ class _SwippingScreenState extends State<SwippingScreen> {
                                     ),
                                   ),
                                 ),
-
-
                               ],
                             ),
                           ],
                         ),
+                      ),
+
+                      const SizedBox(
+                        height: 14,
+                      ),
+
+                      //image buttons - favourite - chat - like
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          //favourite button
+                          GestureDetector(
+                            onTap: () {},
+                            child: Image.asset(
+                              "asset/image/star.png",
+                              width: 60,
+                            ),
+                          ),
+
+                          //chat button
+                          GestureDetector(
+                            onTap: () {},
+                            child: Image.asset(
+                              "asset/image/chat.png",
+                              width: 90,
+                            ),
+                          ),
+
+                          //like button
+                          GestureDetector(
+                            onTap: () {},
+                            child: Image.asset(
+                              "asset/image/thumbs-up.png",
+                              width: 60,
+                            ),
+                          ),
+                        ],
                       )
                     ],
                   ),
