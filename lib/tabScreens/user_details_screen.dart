@@ -613,7 +613,7 @@ class _UserDetailsScreenState extends State<UserDetailsScreen>
                       children:
                       [
                         const Text(
-                          "jotitle: ",
+                          "job Title: ",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 18,
