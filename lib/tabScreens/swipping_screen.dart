@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:finalyearproject/controllers/profile-controller.dart';
 import 'package:finalyearproject/global_second.dart';
+import 'package:finalyearproject/tabScreens/user_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -80,7 +81,17 @@ class _SwippingScreenState extends State<SwippingScreen> {
 
                       //user data
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+
+                          profileController.viewSentAndViewReceived(
+                            eachProfileInfo.uid.toString(),
+                            senderName,
+                          );
+                          //send user to profile person userDetailScreen
+                          Get.to(UserDetailsScreen(
+                            userID: eachProfileInfo.uid.toString(),
+                          ));
+                        },
                         child: Column(
                           children: [
                             //name
