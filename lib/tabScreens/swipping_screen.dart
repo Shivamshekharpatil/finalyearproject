@@ -110,7 +110,7 @@ class _SwippingScreenState extends State<SwippingScreen> {
                               height: 4,
                             ),
 
-                            //summary and userType
+                            //jobtitle and userType
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
