@@ -18,26 +18,26 @@ class _LikeSentLikeReceivedScreenState
   List likesList = [];
   getLikeListKeys() async {
     if (isLikeSentClicked) {
-      var favouriteSentDocument = await FirebaseFirestore.instance
+      var likeSentDocument = await FirebaseFirestore.instance
           .collection("users")
           .doc(currentUserID.toString())
           .collection("likeSent")
           .get();
 
-      for (int i = 0; i < favouriteSentDocument.docs.length; i++) {
-        likeSentList.add(favouriteSentDocument.docs[i].id);
+      for (int i = 0; i < likeSentDocument.docs.length; i++) {
+        likeSentList.add(likeSentDocument.docs[i].id);
       }
       print("likeSentList = " + likeSentList.toString());
       getKeysDataFromUsersCollection(likeSentList);
     } else {
-      var favouriteReceivedDocument = await FirebaseFirestore.instance
+      var likeReceivedDocument = await FirebaseFirestore.instance
           .collection("users")
           .doc(currentUserID.toString())
           .collection("likeReceived")
           .get();
 
-      for (int i = 0; i < favouriteReceivedDocument.docs.length; i++) {
-        likeReceivedList.add(favouriteReceivedDocument.docs[i].id);
+      for (int i = 0; i < likeReceivedDocument.docs.length; i++) {
+        likeReceivedList.add(likeReceivedDocument.docs[i].id);
       }
       print("likeReceivedList = " + likeReceivedList.toString());
       getKeysDataFromUsersCollection(likeReceivedList);
