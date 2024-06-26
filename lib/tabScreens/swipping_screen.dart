@@ -238,7 +238,12 @@ class _SwippingScreenState extends State<SwippingScreen> {
 
                           //like button
                           GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              profileController.likeSentAndLikeReceived(
+                                eachProfileInfo.uid.toString(),
+                                senderName,
+                              );
+                            },
                             child: Image.asset(
                               "asset/image/thumbs-up.png",
                               width: 50,
