@@ -110,7 +110,7 @@ class _SwippingScreenState extends State<SwippingScreen> {
                               height: 4,
                             ),
 
-                            //Jobtitle and userType
+                            //summary and userType
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -129,6 +129,10 @@ class _SwippingScreenState extends State<SwippingScreen> {
                                       fontSize: 14,
                                     ),
                                   ),
+                                ),
+
+                                const SizedBox(
+                                  width: 6,
                                 ),
 
                                 ElevatedButton(
