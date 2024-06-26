@@ -177,7 +177,7 @@ class _FavouriteSentFavouriteReceivedScreenState
                                   Text(
                                     favouritesList[index]["name"].toString() +
                                         " ⦿ " +
-                                        favouritesList[index]["usertype"]
+                                        favouritesList[index]["userType"]
                                             .toString(),
                                     maxLines: 2,
                                     style: const TextStyle(
